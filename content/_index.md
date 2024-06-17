@@ -36,9 +36,9 @@ sections:
       title: 'News'
       subtitle: ''
       text: |-
-        :speaking_head: :loudspeaker: 22 - 27 June 2024: OHBM in Seoul come to see blah blah
-        
-        afaffafafe
+        <div>
+        <pre>:speaking_head: :loudspeaker: 22-27th June 2024 at <span style="text-decoration: underline;"><a href="https://www.humanbrainmapping.org/">OHBM</a></span> in Seoul, South Korea :speaking_head: :loudspeaker:<br />I <span style="text-decoration: underline;"><span style="color: #339966;"><a style="color: #339966; text-decoration: underline;" href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">will give a talk</a></span></span> on action-related topographical organization<br />of category-selectivity in visual cortex and in artificial neural networks.<br />Come to see my poster or listen to my talk :)</pre>
+        </div>
 
       filters:
         folders:
@@ -100,14 +100,9 @@ sections:
     content:
       title: Publications
       text: |-
-        <ul>
-        <li>Pub 1 at <a href="https://google.com">URL</a>&nbsp;Attach slides to a page, such as an event or publication, by editing the external&nbsp;<code dir="auto">url_slides</code>&nbsp;option or internal&nbsp;<code dir="auto">slides</code>&nbsp;option in the page front matter. [<span style="text-decoration: underline;"><span style="color: #0000ff; text-decoration: underline;">PDF</span></span>]</li>
-        </ul>
-        <p>&nbsp;</p>
-        <ul>
-        <li>Pub 2</li>
-        </ul>
-
+        <p>1. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2023). The role of action-related properties in shaping the object space in the biological and artificial brain. <em>Journal of Vision, 23(9), 4868-4868.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2791637">Abstract</a></span>]</p>
+        <p>2. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2021). The organization of body-parts representations in Deep Convolutional Neural Networks. <em>Perception, 50(1_SUPPL), 123-123.</em></p>
+      
       filters:
         folders:
           - publications # todo not yet
