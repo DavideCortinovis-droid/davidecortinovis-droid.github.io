@@ -36,9 +36,8 @@ sections:
       title: 'News'
       subtitle: ''
       text: |-
-        <div>
-        <pre>:speaking_head: :loudspeaker: 22-27th June 2024 at <span style="text-decoration: underline;"><a href="https://www.humanbrainmapping.org/">OHBM</a></span> in Seoul, South Korea :speaking_head: :loudspeaker:<br />I <span style="text-decoration: underline;"><span style="color: #339966;"><a style="color: #339966; text-decoration: underline;" href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">will give a talk</a></span></span> on action-related topographical organization<br />of category-selectivity in visual cortex and in artificial neural networks.<br />Come to see my poster or listen to my talk :)</pre>
-        </div>
+        <p>:speaking_head: 22-27th June 2024 at <span style="text-decoration: underline;"><a href="https://www.humanbrainmapping.org/">OHBM</a></span> in Seoul, South Korea :loudspeaker:</p>
+        <p>I <span style="text-decoration: underline;"><a href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">will give a talk</a></span> on action-related topographical organization of category-selectivity in visual cortex and in artificial neural networks. Come to see my poster or listen to my talk :)</p>      
 
       filters:
         folders:
