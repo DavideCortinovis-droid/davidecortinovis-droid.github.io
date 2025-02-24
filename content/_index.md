@@ -36,8 +36,11 @@ sections:
       title: 'News'
       subtitle: ''
       text: |-
+        <p>:speaking_head: 17 May 2025 at <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/">VSS</a></span> in St Pete Beach, Florida, US :loudspeaker:</p>
+        <p>I will give a <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/presentation/?id=1910">talk</a></span> on object dimensions underlying food selectivity in visual cortex.</p>      
+        <br>
         <p>:speaking_head: 22-27th June 2024 at <span style="text-decoration: underline;"><a href="https://www.humanbrainmapping.org/">OHBM</a></span> in Seoul, South Korea :loudspeaker:</p>
-        <p>I <span style="text-decoration: underline;"><a href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">gave a talk</a></span> on action-related topographical organization of category-selectivity in visual cortex and in artificial neural networks.</p>      
+        <p>I gave a <span style="text-decoration: underline;"><a href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">talk</a></span> on action-related topographical organization of category-selectivity in visual cortex and in artificial neural networks.</p>
 
       filters:
         folders:

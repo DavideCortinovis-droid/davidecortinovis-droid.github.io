@@ -33,16 +33,16 @@ profiles:
   - icon: at-symbol
     url: 'mailto:firstname (dot) lastname (at symbol) unitn.it'
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/DavideCortinov4
+#  - icon: brands/x
+#    url: https://x.com/DavideCortinov4
 #  - icon: brands/instagram
 #    url: https://www.instagram.com/
   - icon: brands/github
     url: https://github.com/DavideCortinovis-droid
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/davide-cortinovis-a59907174/
-#  - icon: academicons/google-scholar
-#    url: https://scholar.google.com/
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=vYwlWZUAAAAJ&hl=en
 #  - icon: academicons/orcid
 #    url: https://orcid.org/
 
