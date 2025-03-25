@@ -184,5 +184,5 @@ awards:
 [//]: # (## About Me)
 
 I am a PhD student in the Object Vision Group at the Centre for Mind/Brain Sciences (CIMeC), University of Trento. 
-I investigate the topographical organization of object categories and dimensions 
+I investigate the topographic organization of object categories and dimensions 
 in visual cortex and in artificial neural networks.

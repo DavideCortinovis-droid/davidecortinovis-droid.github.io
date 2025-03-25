@@ -39,8 +39,8 @@ sections:
         <p>:speaking_head: 17 May 2025 at <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/">VSS</a></span> in St Pete Beach, Florida, US :loudspeaker:</p>
         <p>I will give a <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/presentation/?id=1910">talk</a></span> on object dimensions underlying food selectivity in visual cortex.</p>      
         <br>
-        <p>:speaking_head: 22-27th June 2024 at <span style="text-decoration: underline;"><a href="https://www.humanbrainmapping.org/">OHBM</a></span> in Seoul, South Korea :loudspeaker:</p>
-        <p>I gave a <span style="text-decoration: underline;"><a href="https://ww6.aievolution.com/hbm2401/index.cfm?do=abs.viewAbstract&amp;style=1&amp;abstractID=2901">talk</a></span> on action-related topographical organization of category-selectivity in visual cortex and in artificial neural networks.</p>
+        <p>:speaking_head: 22-27th June 2024 at OHBM in Seoul, South Korea :loudspeaker:</p>
+        <p>I gave a talk on action-related topographic organization of category-selectivity in visual cortex and in artificial neural networks.</p>
 
       filters:
         folders:
@@ -102,8 +102,9 @@ sections:
     content:
       title: Publications
       text: |-
-        <p>1. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2023). The role of action-related properties in shaping the object space in the biological and artificial brain. <em>Journal of Vision, 23(9), 4868-4868.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2791637">Abstract</a></span>]</p>
-        <p>2. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2021). The organization of body-parts representations in Deep Convolutional Neural Networks. <em>Perception, 50(1_SUPPL), 123-123.</em></p>
+        <p>1. <strong>Cortinovis, D.</strong>, Peelen, M.V., &amp; Bracci, S. (2025). Tool Representations in Human Visual Cortex. <em>Journal of Cognitive Neuroscience.</em> [<span style="text-decoration: underline;"><a href="https://direct.mit.edu/jocn/article/37/3/515/125486">Paper</a></span>]</p>
+        <p>2. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2023). The role of action-related properties in shaping the object space in the biological and artificial brain. <em>Journal of Vision, 23(9), 4868-4868.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2791637">Abstract</a></span>]</p>
+        <p>3. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2021). The organization of body-parts representations in Deep Convolutional Neural Networks. <em>Perception, 50(1_SUPPL), 123-123.</em></p>
       
       filters:
         folders:
