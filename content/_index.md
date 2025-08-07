@@ -36,12 +36,18 @@ sections:
       title: 'News'
       subtitle: ''
       text: |-
-        <p>:speaking_head: 17 May 2025 at <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/">VSS</a></span> in St Pete Beach, Florida, US :loudspeaker:</p>
-        <p>I will give a <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/presentation/?id=1910">talk</a></span> on object dimensions underlying food selectivity in visual cortex.</p>      
+        <p style="color: green;">:speaking_head: 7 August 2025 :loudspeaker:</p>
+        <p> New <span style="text-decoration: underline;"><a href="https://www.biorxiv.org/content/10.1101/2025.08.05.668643v1">preprint</a></span> on investigating action topography in visual cortex and deep artificial neural networks!!</p>      
         <br>
-        <p>:speaking_head: 22-27th June 2024 at OHBM in Seoul, South Korea :loudspeaker:</p>
+        <p style="color: green;">:speaking_head: 12 August 2025 at <span style="text-decoration: underline;"><a href="https://2025.ccneuro.org/">CNN</a></span> in Amsterdam, the Netherlands :loudspeaker:</p>
+        <p>I will present a <span style="text-decoration: underline;"><a href="https://2025.ccneuro.org/abstract_pdf/Cortinovis_2025_Comparing_Object_Selectivity_Visual_Cortex_Topographic.pdf">poster</a></span> on comparing object selectivity in visual cortex and topographic deep neural networks.</p>      
+        <br>
+        <p style="color: green;">:speaking_head: 17 May 2025 at <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/">VSS</a></span> in St Pete Beach, Florida, US :loudspeaker:</p>
+        <p>I gave a <span style="text-decoration: underline;"><a href="https://www.visionsciences.org/presentation/?id=1910">talk</a></span> on object dimensions underlying food selectivity in visual cortex.</p>      
+        <br>
+        <p style="color: green;">:speaking_head: 22-27th June 2024 at OHBM in Seoul, South Korea :loudspeaker:</p>
         <p>I gave a talk on action-related topographic organization of category-selectivity in visual cortex and in artificial neural networks.</p>
-
+      
       filters:
         folders:
           - news # todo not exist
@@ -102,16 +108,30 @@ sections:
     content:
       title: Publications
       text: |-
-        <p>1. <strong>Cortinovis, D.</strong>, Peelen, M.V., &amp; Bracci, S. (2025). Tool Representations in Human Visual Cortex. <em>Journal of Cognitive Neuroscience.</em> [<span style="text-decoration: underline;"><a href="https://direct.mit.edu/jocn/article/37/3/515/125486">Paper</a></span>]</p>
-        <p>2. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2023). The role of action-related properties in shaping the object space in the biological and artificial brain. <em>Journal of Vision, 23(9), 4868-4868.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2791637">Abstract</a></span>]</p>
-        <p>3. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2021). The organization of body-parts representations in Deep Convolutional Neural Networks. <em>Perception, 50(1_SUPPL), 123-123.</em></p>
+        <p>1. <strong>Cortinovis, D.</strong>, Truong, N., Op de Beeck, H., &amp; Bracci, S. (2025). Investigating action topography in visual cortex and deep artificial neural networks. <em>Preprint.</em> [<span style="text-decoration: underline;"><a href="https://www.biorxiv.org/content/10.1101/2025.08.05.668643v1">Paper</a></span>]</p>
+        <p>2. <strong>Cortinovis, D.</strong>, Peelen, M.V., &amp; Bracci, S. (2025). Tool Representations in Human Visual Cortex. <em>Journal of Cognitive Neuroscience.</em> [<span style="text-decoration: underline;"><a href="https://direct.mit.edu/jocn/article/37/3/515/125486">Paper</a></span>]</p>
+              
+      filters:
+        folders:
+          - publications # todo not yet
+        exclude_featured: false
+  - block: collection
+    id: papers
+    content:
+      title: Conference abstracts
+      text: |-
+        <p>1. <strong>Cortinovis, D.</strong>, Hebart, M., & Bracci, S. (2025). Comparing Object Selectivity in Visual Cortex and Topographic Deep Artifcial Neural Networks. <em>Conference on Cognitive Computational Neuroscience.</em> [<span style="text-decoration: underline;"><a href="https://2025.ccneuro.org/abstract_pdf/Cortinovis_2025_Comparing_Object_Selectivity_Visual_Cortex_Topographic.pdf">Abstract</a></span>]</p>
+        <p>2. <strong>Cortinovis, D.</strong>, Orlandi, G., van Campenhout, L., & Bracci, S. (2025). Object dimensions underlying food selectivity in visual cortex. <em>Journal of Vision, 25(9), 1910-1910.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2810196">Abstract</a></span>]</p>
+        <p>3. Bracci, S., <strong>Cortinovis, D.</strong>, &amp; Garnuto, E. (2025). The Effect of Scene Clutter on Visual Representations. <em>Journal of Vision, 25(9), 2061-2061.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2810061">Abstract</a></span>]</p>
+        <p>4. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2023). The role of action-related properties in shaping the object space in the biological and artificial brain. <em>Journal of Vision, 23(9), 4868-4868.</em> [<span style="text-decoration: underline;"><a href="https://jov.arvojournals.org/article.aspx?articleid=2791637">Abstract</a></span>]</p>
+        <p>5. <strong>Cortinovis, D.</strong>, de Beeck, H. O., &amp; Bracci, S. (2021). The organization of body-parts representations in Deep Convolutional Neural Networks. <em>Perception, 50(1_SUPPL), 123-123.</em></p>
       
       filters:
         folders:
           - publications # todo not yet
         exclude_featured: false
-    design:
-      view: citation
+    # design:
+    #   view: citation
   - block: markdown
     content:
       title: ''
