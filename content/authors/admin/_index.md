@@ -41,7 +41,7 @@ profiles:
     url: https://github.com/DavideCortinovis-droid
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/davide-cortinovis-a59907174/
-  - icon: brands/bluesky
+  - icon: brands/x
     url: https://bsky.app/profile/davidecortinovis.bsky.social
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=vYwlWZUAAAAJ&hl=en
