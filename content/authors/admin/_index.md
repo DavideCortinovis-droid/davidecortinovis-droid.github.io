@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: PhD Student in Cognitive Neuroscience
+role: Researcher in Cognitive Neuroscience
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -74,7 +74,7 @@ education:
 #      - lorem ipsum dolor sit amet, consectetur adipiscing elit
 #      - lorem ipsum dolor sit amet, consectetur adipiscing elit
 #      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc in Pyshcology
+  - area: BSc in Psychology
     institution: University of Bergamo
 #    date_start: 2016-01-01
 #    date_end: 2020-12-31
@@ -185,6 +185,6 @@ awards:
 
 [//]: # (## About Me)
 
-I am a PhD student in the Object Vision Group at the Centre for Mind/Brain Sciences (CIMeC), University of Trento. 
+I am a researcher in the Object Vision Group at the Centre for Mind/Brain Sciences (CIMeC), University of Trento. 
 I investigate the topographic organization of object categories and dimensions 
 in visual cortex and in artificial neural networks.
