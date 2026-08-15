@@ -108,7 +108,7 @@ header {
 .profile-photo {
   display:block;
   width:100%;
-  max-width:260px;
+  max-width:220px;
   height:auto;
   margin:0 auto 24px;
   border:5px solid rgba(255,255,255,0.85);
@@ -163,7 +163,7 @@ header {
    photo and the heading once they are one above the other. */
 @media (max-width:991px) {
   .profile-photo {
-    max-width:180px;
+    max-width:150px;
     margin:0 auto;
   }
   .profile-column {

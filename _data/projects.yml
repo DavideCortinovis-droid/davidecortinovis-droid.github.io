@@ -12,11 +12,3 @@
     enough. **Markdown** and [links](https://example.com) work.
   image: /img/project-placeholder.svg
   url:
--
-  name: Project two
-  description: >
-    A short description of the project goes here. A couple of sentences saying
-    what the question was, what you did, and what came out of it is usually
-    enough. **Markdown** and [links](https://example.com) work.
-  image: /img/project-placeholder.svg
-  url:
