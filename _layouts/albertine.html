@@ -252,14 +252,14 @@ It is threatened by habitat loss.
                 {{ publication.title }}
               {% endif %}
             </b>
-            <small>
-              {{ publication.year }}
-            </small>
             <br>
             {{ publication.authors }}
             {% if publication.venue %}
               <br>
-              <em>{{ publication.venue }}</em>
+              <em>{{ publication.venue }}</em>{% if publication.year %}, {{ publication.year }}{% endif %}
+            {% elsif publication.year %}
+              <br>
+              {{ publication.year }}
             {% endif %}
           </p>
         {% endfor %}
