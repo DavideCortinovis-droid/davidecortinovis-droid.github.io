@@ -94,61 +94,57 @@ It is threatened by habitat loss.
         </div>
 
       </section>
-      <section class="col-md-offset-1 col-md-3">
+      <section class="col-md-4">
         <!-- The photo lives here rather than in the fixed header, so it scrolls
              away with the page instead of following you down it. -->
         <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
              alt="{{ site.data.personal.name }}"
              class="img-circle profile-photo">
+      </section>
+    </div>
 
+    <!-- Contact sits under the intro rather than beside it: as a narrow right
+         column it was a thin stack of text against a wide block of prose. -->
+    <div class="row">
+      <section class="col-md-8">
         <h3>Contact</h3>
         <p>
-          {{ site.data.personal.email | replace:'@',' <small>[at]</small> ' | replace:'.',' <small>[dot]</small> ' }}
+          {{ site.data.personal.email }}
         </p>
-        <p>
-          {{ site.data.personal.department }}<br>
-          {{ site.data.personal.institution }}
-          {% if site.data.personal.mailing_address %}
-            <br>{{ site.data.personal.mailing_address | strip | replace:'
-',' <br>' }}
+
+        <p class="contact-icons">
+          {% for profile in site.data.personal.profiles %}
+            <a href="{{ profile.url }}" title="{{ profile.network }}" aria-label="{{ profile.network }}">
+              {% case profile.network %}
+                {% when 'Google Scholar' %}
+                  <i class="ai ai-google-scholar" aria-hidden="true"></i>
+                {% when 'ORCID' %}
+                  <i class="ai ai-orcid" aria-hidden="true"></i>
+                {% when 'GitHub' %}
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                {% when 'LinkedIn' %}
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                {% when 'Bluesky' %}
+                  <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+                {% when 'Twitter' %}
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                {% else %}
+                  <i class="fa-solid fa-link" aria-hidden="true"></i>
+              {% endcase %}
+            </a>
+          {% endfor %}
+
+          {% if site.data.personal.cv %}
+            {% comment %}
+              An absolute URL (Google Drive) is used as-is; a repo-relative path
+              gets the baseurl prefix.
+            {% endcomment %}
+            <a href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}"
+               title="Curriculum Vitae" aria-label="Curriculum Vitae">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+            </a>
           {% endif %}
         </p>
-
-        <p>
-          {% for profile in site.data.personal.profiles %}
-            {% case profile.network %}
-              {% when 'Google Scholar' %}
-                <i class="ai ai-google-scholar" aria-hidden="true"></i>
-              {% when 'ORCID' %}
-                <i class="ai ai-orcid" aria-hidden="true"></i>
-              {% when 'GitHub' %}
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-              {% when 'LinkedIn' %}
-                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-              {% when 'Bluesky' %}
-                <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
-              {% when 'Twitter' %}
-                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-              {% else %}
-                <i class="fa-solid fa-link" aria-hidden="true"></i>
-            {% endcase %}
-            <a href="{{ profile.url }}">
-              {{ profile.network }}
-            </a>
-            {% unless forloop.last %}
-              <br>
-            {% endunless %}
-          {% endfor %}
-        </p>
-
-        {% if site.data.personal.cv %}
-          <p>
-            <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
-            <a href="{{ site.baseurl }}{{ site.data.personal.cv }}">
-              Download CV
-            </a>
-          </p>
-        {% endif %}
       </section>
     </div>
   </div>
@@ -323,15 +319,11 @@ It is threatened by habitat loss.
       <div class="row">
         <div class="col-xs-12">
           <p>
-            &copy; {{ site.time | date: '%Y' }} {{ site.data.personal.name }}
-          </p>
-          <p>
             Thanks <a href="https://tlmnhut.github.io/">Nhut Truong</a> for the help to make the page 😇
           </p>
           <p>
             <small>
-              Built with <a href="https://jekyllrb.com/">Jekyll</a> using the
-              Albertine theme by <a href="http://ianli.com">Ian Li</a> (MIT).
+              Built with Jekyll using the template by <a href="http://ianli.com">Ian Li</a>.
             </small>
           </p>
         </div>

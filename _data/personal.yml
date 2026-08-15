@@ -4,19 +4,13 @@ label: Researcher in Cognitive Neuroscience
 
 picture: /img/profile-picture.jpg
 
-# Rendered through the layout's own obfuscation filter, which turns this into
-# "davide [dot] cortinovis [at] unitn [dot] it". Do not pre-obfuscate it here or
-# the filter will mangle it twice.
-email: davide.cortinovis@unitn.it
+# Printed verbatim, so the real address never appears in the page source or in
+# this public repo for a crawler to scrape. A person can still work it out.
+email: firstname (dot) lastname (at symbol) unitn.it
 
-phone:
-
-department: Object Vision Group
-
-institution: CIMeC, University of Trento
-
-mailing_address:
-
+# Either a full URL (e.g. a Google Drive share link, so the CV can be updated
+# without touching this repo) or a path inside the repo such as
+# /uploads/resume.pdf. Leave blank to hide the CV link entirely.
 cv: /uploads/resume.pdf
 
 profiles:
@@ -41,7 +35,7 @@ intro:
   title: Hello!
   body: >
     I am a researcher in visual neuroscience. I did my PhD at the
-    [Center for Mind/Brain Sciences](https://www.cimec.unitn.it/) at the
+    [Center for Mind/Brain Sciences](https://www.cimec.unitn.it/en) at the
     University of Trento, in the
     [Object Vision Group](https://www.cimec.unitn.it/en/1048/object-vision-group)
     led by [Stefania Bracci](https://webapps.unitn.it/du/en/Persona/PER0076943/Curriculum).
