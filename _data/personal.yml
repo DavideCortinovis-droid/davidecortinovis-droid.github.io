@@ -1,44 +1,53 @@
-name: Ian Li
+name: Davide Cortinovis
 
-label: UI Designer
+label: Researcher in Cognitive Neuroscience
 
 picture: /img/profile-picture.jpg
 
-email: ianli@ianli.com
+# Rendered through the layout's own obfuscation filter, which turns this into
+# "davide [dot] cortinovis [at] unitn [dot] it". Do not pre-obfuscate it here or
+# the filter will mangle it twice.
+email: davide.cortinovis@unitn.it
 
-phone: 
+phone:
 
-department: Android UX
+department: Object Vision Group
 
-institution: Google
+institution: CIMeC, University of Trento
 
-mailing_address: >
-  1600 Amphitheatre Parkway
-  Mountain View, CA 94043
+mailing_address:
+
+cv: /uploads/resume.pdf
 
 profiles:
-  - 
+  -
     network: Google Scholar
-    username:
-    url: http://scholar.google.com/citations?user=JS7sVyQAAAAJ&hl=en
+    url: https://scholar.google.com/citations?user=vYwlWZUAAAAJ&hl=en
+  -
+    network: GitHub
+    username: DavideCortinovis-droid
+    url: https://github.com/DavideCortinovis-droid
   -
     network: LinkedIn
-    username:
-    url: https://www.linkedin.com/pub/ian-li/1/681/8b0
+    url: https://www.linkedin.com/in/davide-cortinovis-a59907174/
   -
-    network: Twitter
-    username: ianli
-    url: https://twitter.com/ianli/
+    network: Bluesky
+    username: davidecortinovis
+    url: https://bsky.app/profile/davidecortinovis.bsky.social
 
 intro:
   title: Hello!
+  # Interests and education are folded into this prose rather than given their
+  # own sidebar blocks, since Albertine has no structured slot for them.
   body: >
-    I'm a UI designer at Google.
-    Before Google, I was a Ph.D. student in the 
-    [Human-Computer Interaction Institute](http://hcii.cs.cmu.edu/) at Carnegie Mellon University.
-    My advisors were 
-    [Anind Dey](http://www.cs.cmu.edu/~anind/) and 
-    [Jodi Forlizzi](http://goodgestreet.com/). 
-    I worked on designed and developed 
-    [personal informatics tools](http://www.personalinformatics.org/) that help people better understand their own behavior.
-    [My dissertation](http://ianli.com/thesis/) explored how contextual information can improve self-knowledge in personal informatics systems.
+    I am a researcher in the Object Vision Group at the
+    [Centre for Mind/Brain Sciences (CIMeC)](https://webapps.unitn.it/du/en/Persona/PER0221111/Pubblicazioni),
+    University of Trento.
+    I investigate the topographic organization of object categories and dimensions
+    in visual cortex and in artificial neural networks.
+
+
+    My interests span visual neuroscience, neuroimaging, and computational
+    modelling. I hold a PhD in Cognitive and Brain Sciences and an MSc in
+    Cognitive Neuroscience from the University of Trento, and a BSc in
+    Psychology from the University of Bergamo.

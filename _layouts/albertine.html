@@ -6,15 +6,25 @@ Albertine 0.1
 An Elbowpatched theme
 
 (c) 2014 Ian Li (http://ianli.com)
+Released under the MIT licence - see LICENSE-albertine.
+
+Adapted for davidecortinovis-droid.github.io:
+  - added a News section (the theme has no equivalent)
+  - publications render `venue` and link to `url` (the original linked titles to
+    a `pdf` field only, and had no preprint type)
+  - presentations render `citation` and `video_url` (the original silently
+    dropped `video_url`)
+  - Font Awesome 4.1 -> 6.7.2 plus Academicons, for GitHub/Bluesky/Scholar icons
+  - protocol-relative CDN URLs made https, dead MaxCDN IE8 shim removed
 
 ####
 
 Albertine owlet
 http://en.wikipedia.org/wiki/Albertine_owlet
 
-The Albertine owlet (Glaucidium albertinum) is a species of owl in the Strigidae family. 
-It is found in Democratic Republic of the Congo and Rwanda. 
-Its natural habitat is subtropical or tropical moist montane forests. 
+The Albertine owlet (Glaucidium albertinum) is a species of owl in the Strigidae family.
+It is found in Democratic Republic of the Congo and Rwanda.
+Its natural habitat is subtropical or tropical moist montane forests.
 It is threatened by habitat loss.
 
 -->
@@ -25,24 +35,22 @@ It is threatened by habitat loss.
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ site.data.personal.name }}</title>
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description | strip_newlines | strip }}">
+  {% if site.google_site_verification %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {% endif %}
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/albertine/css/default.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Javascript -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body class="intro-screen">
 
@@ -61,7 +69,8 @@ It is threatened by habitat loss.
           </h2>
         </div>
         <div class="col-xs-3 col-lg-3">
-          <img src="{{ site.baseurl }}{{ site.data.personal.picture }}" 
+          <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
+               alt="{{ site.data.personal.name }}"
                class="img-circle"
                style="margin-top:-6px;width:56px;border:2px solid rgba(255,255,255,0.75)">
         </div>
@@ -70,7 +79,7 @@ It is threatened by habitat loss.
   </header>
 
   <!-- ==================== -->
-  <!-- SECTION -->
+  <!-- ABOUT + CONTACT -->
   <!-- ==================== -->
   <div class="container"
            id="section-about">
@@ -89,7 +98,7 @@ It is threatened by habitat loss.
         <div class="lead">
           {{ site.data.personal.intro.body | markdownify }}
         </div>
-        
+
       </section>
       <section class="col-md-offset-1 col-md-3">
         <h3>Contact</h3>
@@ -98,72 +107,111 @@ It is threatened by habitat loss.
         </p>
         <p>
           {{ site.data.personal.department }}<br>
-          {{ site.data.personal.institution }}<br>
-          {{ site.data.personal.mailing_address | replace:'\n','<br>' }}
+          {{ site.data.personal.institution }}
+          {% if site.data.personal.mailing_address %}
+            <br>{{ site.data.personal.mailing_address | strip | replace:'
+',' <br>' }}
+          {% endif %}
         </p>
 
         <p>
           {% for profile in site.data.personal.profiles %}
-            
-            {% if profile.network == 'Google Scholar' %}
-              <i class="fa fa-google"></i>
-            {% elsif profile.network == 'LinkedIn' %}
-              <i class="fa fa-linkedin-square"></i>
-            {% elsif profile.network == 'Twitter' %}
-              <i class="fa fa-twitter-square"></i>
-            {% endif %}
+            {% case profile.network %}
+              {% when 'Google Scholar' %}
+                <i class="ai ai-google-scholar" aria-hidden="true"></i>
+              {% when 'ORCID' %}
+                <i class="ai ai-orcid" aria-hidden="true"></i>
+              {% when 'GitHub' %}
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              {% when 'LinkedIn' %}
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              {% when 'Bluesky' %}
+                <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+              {% when 'Twitter' %}
+                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              {% else %}
+                <i class="fa-solid fa-link" aria-hidden="true"></i>
+            {% endcase %}
             <a href="{{ profile.url }}">
               {{ profile.network }}
             </a>
-            {% if forloop.last == false %}
+            {% unless forloop.last %}
               <br>
-            {% endif %}
+            {% endunless %}
           {% endfor %}
         </p>
+
+        {% if site.data.personal.cv %}
+          <p>
+            <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+            <a href="{{ site.baseurl }}{{ site.data.personal.cv }}">
+              Download CV
+            </a>
+          </p>
+        {% endif %}
       </section>
     </div>
   </div>
 
-  {% if site.data.publications.size > 0 %}
-  <div class="container">
+  {% if site.data.news.size > 0 %}
+  <!-- ==================== -->
+  <!-- NEWS -->
+  <!-- ==================== -->
+  <section class="container">
     <div class="row">
-      <section class="col-md-9">
+      <div class="col-md-9">
+        <h3>News</h3>
+
+        <ol class="news-list">
+          {% for item in site.data.news %}
+            <li class="news-item">
+              <span class="news-date">{{ item.date }}</span>
+              <span class="news-body">{{ item.body | markdownify | remove:'<p>' | remove:'</p>' }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if site.data.publications.size > 0 %}
+  <!-- ==================== -->
+  <!-- PUBLICATIONS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
         <h3>Publications</h3>
 
         {% for publication in site.data.publications %}
           <p>
             <b>
-              <a href="{{ publication.pdf }}">
+              {% if publication.url %}
+                <a href="{{ publication.url }}">
+                  {{ publication.title }}
+                </a>
+              {% else %}
                 {{ publication.title }}
-              </a>
+              {% endif %}
             </b>
             <small>
               {{ publication.year }}
             </small>
             <br>
             {{ publication.authors }}
-            <br>
-            {% case publication.type %}
-              {% when 'conference' %}
-                {{ publication.conference }}
-              {% when 'dissertation' %}
-                {{ publication.publisher }}
-              {% when 'journal' %}
-                {{ publication.journal }},
-                {{ publication.volume }},
-                {{ publication.issue }},
-                {{ publication.pages }}
-              {% when 'magazine' %}
-                {{ publication.magazine }},
-                {{ publication.volume }},
-                {{ publication.issue }},
-                {{ publication.pages }}
-            {% endcase %}
+            {% if publication.venue %}
+              <br>
+              <em>{{ publication.venue }}</em>
+            {% endif %}
+            {% if publication.url and publication.link_text %}
+              [<a href="{{ publication.url }}">{{ publication.link_text }}</a>]
+            {% endif %}
           </p>
         {% endfor %}
-      </section>
+      </div>
     </div>
-  </div>
+  </section>
   {% endif %}
 
   {% if site.data.projects.size > 0 %}
@@ -184,7 +232,8 @@ It is threatened by habitat loss.
                     col-md-3
                     col-lg-2">
           <p>
-            <img src="{{ site.baseurl }}{{ project.image }}" 
+            <img src="{{ site.baseurl }}{{ project.image }}"
+                 alt="{{ project.name }}"
                  class="img-responsive img-thumbnail"
                  style="width:100%">
           </p>
@@ -219,7 +268,7 @@ It is threatened by habitat loss.
   <section class="container">
     <div class="row">
       <div class="col-md-9">
-        <h3>Presentations</h3>
+        <h3>Conference presentations</h3>
       </div>
     </div>
 
@@ -232,6 +281,10 @@ It is threatened by habitat loss.
                 <a href="{{ presentation.slides_url }}">
                   {{ presentation.title }}
                 </a>
+              {% elsif presentation.video_url %}
+                <a href="{{ presentation.video_url }}">
+                  {{ presentation.title }}
+                </a>
               {% else %}
                 {{ presentation.title }}
               {% endif %}
@@ -241,6 +294,16 @@ It is threatened by habitat loss.
             </small>
             <br>
             {{ presentation.location }}
+            {% if presentation.citation %}
+              <br>
+              <small>{{ presentation.citation }}</small>
+            {% endif %}
+            {% if presentation.slides_url %}
+              [<a href="{{ presentation.slides_url }}">{{ presentation.slides_text | default: 'Slides' }}</a>]
+            {% endif %}
+            {% if presentation.video_url %}
+              [<a href="{{ presentation.video_url }}">{{ presentation.video_text | default: 'Video' }}</a>]
+            {% endif %}
           </p>
         </div>
       </div>
@@ -259,13 +322,19 @@ It is threatened by habitat loss.
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">          
-          <img src="{{ site.baseurl }}/img/elbowpatched-icon.svg" alt="Elbowpatched"
-               style="float:left;margin-right:5px;width:20px;height:20px;">
-          Powered by 
-          <a href="http://www.elbowpatched.com">
-            Elbowpatched
-          </a>
+        <div class="col-xs-12">
+          <p>
+            &copy; {{ site.time | date: '%Y' }} {{ site.data.personal.name }}
+          </p>
+          <p>
+            Thanks <a href="https://tlmnhut.github.io/">Nhut Truong</a> for the help to make the page 😇
+          </p>
+          <p>
+            <small>
+              Built with <a href="https://jekyllrb.com/">Jekyll</a> using the
+              Albertine theme by <a href="http://ianli.com">Ian Li</a> (MIT).
+            </small>
+          </p>
         </div>
       </div>
     </div>
@@ -274,7 +343,7 @@ It is threatened by habitat loss.
   <!-- ==================== -->
   <!-- JAVASCRIPTS -->
   <!-- ==================== -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>
   <script>
     $(document).ready(function () {
       $('#section-about').waypoint(function (direction) {

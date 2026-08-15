@@ -1,0 +1,25 @@
+# Site
+title: Davide Cortinovis
+description: >
+  Davide Cortinovis, researcher in cognitive neuroscience in the Object Vision
+  Group at CIMeC, University of Trento.
+url: https://davidecortinovis-droid.github.io
+
+# User page (davidecortinovis-droid.github.io), served from the domain root.
+# The Albertine boilerplate ships `/elbowpatched-boilerplate` here because it is
+# a project page; leaving that in place would break every asset path.
+baseurl: ""
+
+# Google Search Console, carried over from the Hugo config
+# (config/_default/params.yaml -> marketing.verification.google).
+google_site_verification: dSlV_xTOsJ1MohsYy6Aqr3c8SHEl3N2gBDEO83P2KyA
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE-albertine
+  - vendor
