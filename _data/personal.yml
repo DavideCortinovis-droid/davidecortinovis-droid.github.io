@@ -4,15 +4,18 @@ label: Researcher in Cognitive Neuroscience
 
 picture: /img/profile-picture.jpg
 
-# The address is assembled in the browser from these two halves on click, so
-# the complete string never appears in the page source. Harvesters that scan
-# HTML for `something@something` find nothing to match.
+# The address is base64 and is decoded in the browser only when someone clicks
+# the envelope, so neither this repo nor the served HTML contains it in a
+# readable form. This stops bulk harvesters; it is not secrecy, since anyone
+# who reads the page's JavaScript can decode it too.
 #
-# `email` is the fallback shown when JavaScript is unavailable, and the label
-# on the icon before it is clicked.
+# To change the address, regenerate the value:
+#   python3 -c "import base64;print(base64.b64encode(b'new@address.here').decode())"
+#
+# `email` is the label on the icon before it is clicked, and the fallback for
+# anyone browsing without JavaScript.
 email: firstname (dot) lastname (at symbol) unitn.it
-email_user: davide.cortinovis
-email_domain: unitn.it
+email_encoded: ZGF2aWRlLmNvcnRpbm92aXNAdW5pdG4uaXQ=
 
 # Either a full URL (e.g. a Google Drive share link, so the CV can be updated
 # without touching this repo) or a path inside the repo such as

@@ -23,8 +23,25 @@ page (`index.html`) and a single layout (`_layouts/albertine.html`).
 Each list section is wrapped in `{% if site.data.<name>.size > 0 %}`, so
 emptying a data file removes its section from the page.
 
-Other content lives at `uploads/resume.pdf` (the CV linked from the Contact
-column) and `img/profile-picture.jpg` (the header photo).
+The photo is `img/profile-picture.jpg`. The CV is not in this repo: `cv:` in
+`_data/personal.yml` holds a Google Drive link, so it can be replaced without
+a commit here. A repo-relative path such as `/uploads/resume.pdf` also works.
+
+### The email address
+
+`email_encoded` in `_data/personal.yml` is the address in base64. The page
+decodes it in the browser only when a visitor clicks the envelope, so neither
+this repo nor the served HTML holds a readable address for bulk harvesters to
+scrape. It is not secrecy — anyone reading the page's JavaScript can decode it.
+
+To change it:
+
+```bash
+python3 -c "import base64;print(base64.b64encode(b'new@address.here').decode())"
+```
+
+The `email` field beside it is the placeholder shown on hover before the click,
+and the fallback for anyone browsing without JavaScript.
 
 ## Local preview
 
