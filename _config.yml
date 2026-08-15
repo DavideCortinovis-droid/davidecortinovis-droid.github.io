@@ -17,6 +17,11 @@ google_site_verification: dSlV_xTOsJ1MohsYy6Aqr3c8SHEl3N2gBDEO83P2KyA
 # Build settings
 markdown: kramdown
 
+# Generates /sitemap.xml. Ships with the `github-pages` gem that the Actions
+# build already uses, so nothing new is installed in CI.
+plugins:
+  - jekyll-sitemap
+
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -17,9 +17,9 @@ picture: /img/profile-picture.jpg
 email: firstname (dot) lastname (at symbol) unitn.it
 email_encoded: ZGF2aWRlLmNvcnRpbm92aXNAdW5pdG4uaXQ=
 
-# Either a full URL (e.g. a Google Drive share link, so the CV can be updated
-# without touching this repo) or a path inside the repo such as
-# /uploads/resume.pdf. Leave blank to hide the CV link entirely.
+# The CV lives on Google Drive so it can be replaced without a commit here.
+# Update the file in Drive and this link keeps working; no copy is kept in this
+# repo. Leave blank to hide the CV link entirely.
 cv: https://drive.google.com/file/d/1IHHp2s0nADxj9yHeIRNJXdGRDKSmVs-i/view
 
 profiles:

@@ -45,6 +45,47 @@ It is threatened by habitat loss.
   <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/icon.png">
   <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/icon.png">
 
+  {% assign site_root = site.url | append: site.baseurl %}
+  {% assign photo_url = site_root | append: site.data.personal.picture %}
+  <link rel="canonical" href="{{ site_root }}/">
+
+  <!-- Link previews when the page is shared. -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ site.data.personal.name }} — {{ site.data.personal.label }}">
+  <meta property="og:description" content="{{ site.description | strip_newlines | strip }}">
+  <meta property="og:url" content="{{ site_root }}/">
+  <meta property="og:image" content="{{ photo_url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ site.data.personal.name }} — {{ site.data.personal.label }}">
+  <meta name="twitter:description" content="{{ site.description | strip_newlines | strip }}">
+  <meta name="twitter:image" content="{{ photo_url }}">
+
+  {% comment %}
+    Tells Google this page is one person rather than a generic document, and
+    ties the profiles together as the same entity. The email is deliberately
+    left out: it would undo the obfuscation on the page itself.
+  {% endcomment %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.data.personal.name | jsonify }},
+    "url": {{ site_root | append: '/' | jsonify }},
+    "image": {{ photo_url | jsonify }},
+    "jobTitle": {{ site.data.personal.label | jsonify }},
+    "affiliation": {
+      "@type": "Organization",
+      "name": "CIMeC, University of Trento",
+      "url": "https://www.cimec.unitn.it/en"
+    },
+    "sameAs": [
+      {% for profile in site.data.personal.profiles %}{{ profile.url | jsonify }}{% unless forloop.last %},
+      {% endunless %}{% endfor %}
+    ]
+  }
+  </script>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
