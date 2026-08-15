@@ -175,23 +175,27 @@ header {
 }
 
 /*******************
- * NEWS
+ * DATED LISTS (News, Posters & Talks)
  *******************/
-.news-list {
+/* One definition shared by both sections, so their date pills cannot drift
+   apart. */
+.dated-list {
   list-style:none;
   padding:0;
   margin:0;
 }
-  .news-item {
+  .dated-item {
     display:flex;
     align-items:baseline;
     gap:0.75rem;
     margin-bottom:0.9rem;
     line-height:1.5;
   }
-  .news-date {
-    flex:0 0 auto;
-    min-width:110px;
+  /* Fixed width rather than min-width: the dates range from "2021" to
+     "22-27 June 2024", and a pill that grows with its text would leave every
+     entry's body starting at a different place. */
+  .dated-date {
+    flex:0 0 132px;
     padding:0.2rem 0.7rem;
     border-radius:999px;
     background-color:#ff5722;
@@ -201,17 +205,22 @@ header {
     white-space:nowrap;
     text-align:center;
   }
-  .news-body {
+  .dated-body {
     flex:1 1 auto;
+  }
+  /* Talks carry a title, a venue and a citation, so they need the line breaks
+     that a news one-liner does not. */
+  .dated-body .dated-venue {
+    display:block;
   }
 
 /* Stack the date above the text on narrow screens, where a fixed-width pill
    plus prose leaves the text column too cramped to read. */
 @media (max-width:767px) {
-  .news-item {
+  .dated-item {
     display:block;
   }
-  .news-date {
+  .dated-date {
     display:inline-block;
     margin-bottom:0.35rem;
   }

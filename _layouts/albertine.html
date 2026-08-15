@@ -173,11 +173,11 @@ It is threatened by habitat loss.
       <div class="col-md-9">
         <h3>News</h3>
 
-        <ol class="news-list">
+        <ol class="dated-list">
           {% for item in site.data.news %}
-            <li class="news-item">
-              <span class="news-date">{{ item.date }}</span>
-              <span class="news-body">{{ item.body | markdownify | remove:'<p>' | remove:'</p>' }}</span>
+            <li class="dated-item">
+              <span class="dated-date">{{ item.date }}</span>
+              <span class="dated-body">{{ item.body | markdownify | remove:'<p>' | remove:'</p>' }}</span>
             </li>
           {% endfor %}
         </ol>
@@ -276,39 +276,31 @@ It is threatened by habitat loss.
     <div class="row">
       <div class="col-md-9">
         <h3>Posters &amp; Talks</h3>
+
+        <ol class="dated-list">
+          {% for presentation in site.data.presentations %}
+            <li class="dated-item">
+              <span class="dated-date">{{ presentation.date }}</span>
+              <span class="dated-body">
+                <b>
+                  {% if presentation.slides_url %}
+                    <a href="{{ presentation.slides_url }}">{{ presentation.title }}</a>
+                  {% elsif presentation.video_url %}
+                    <a href="{{ presentation.video_url }}">{{ presentation.title }}</a>
+                  {% else %}
+                    {{ presentation.title }}
+                  {% endif %}
+                </b>
+                <span class="dated-venue">{{ presentation.location }}</span>
+                {% if presentation.citation %}
+                  <small>{{ presentation.citation }}</small>
+                {% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        </ol>
       </div>
     </div>
-
-    {% for presentation in site.data.presentations %}
-      <div class="row">
-        <div class="col-md-9">
-          <p>
-            <b>
-              {% if presentation.slides_url %}
-                <a href="{{ presentation.slides_url }}">
-                  {{ presentation.title }}
-                </a>
-              {% elsif presentation.video_url %}
-                <a href="{{ presentation.video_url }}">
-                  {{ presentation.title }}
-                </a>
-              {% else %}
-                {{ presentation.title }}
-              {% endif %}
-            </b>
-            <small>
-              {{ presentation.date }}
-            </small>
-            <br>
-            {{ presentation.location }}
-            {% if presentation.citation %}
-              <br>
-              <small>{{ presentation.citation }}</small>
-            {% endif %}
-          </p>
-        </div>
-      </div>
-    {% endfor %}
   </section>
   {% endif %}
 
