@@ -82,7 +82,18 @@ It is threatened by habitat loss.
   <div class="container"
            id="section-about">
     <div class="row">
-      <section class="col-md-8">
+      {% comment %}
+        The photo comes first in source order so it leads on a phone, where the
+        columns stack. push/pull swaps it back to the right on desktop.
+      {% endcomment %}
+      <section class="col-md-4 col-md-push-8 profile-column">
+        <!-- The photo lives here rather than in the fixed header, so it scrolls
+             away with the page instead of following you down it. -->
+        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
+             alt="{{ site.data.personal.name }}"
+             class="img-circle profile-photo">
+      </section>
+      <section class="col-md-8 col-md-pull-4 intro-column">
         {% if site.data.personal.intro.title %}
           <h3 style="font-size:48px">
             {{ site.data.personal.intro.title }}
@@ -102,10 +113,18 @@ It is threatened by habitat loss.
              One unlabelled row: the address shows on hover, and every item
              carries a screen-reader name. -->
         <p class="contact-icons">
-          <span class="contact-item" title="{{ site.data.personal.email }}">
+          {% comment %}
+            The two halves are joined by JavaScript on click (see the bottom of
+            this file), so the full address is never in the served HTML. Works
+            on touch devices, where a `title` tooltip never appears.
+          {% endcomment %}
+          <a class="contact-item" id="email-link" href="#"
+             data-user="{{ site.data.personal.email_user }}"
+             data-domain="{{ site.data.personal.email_domain }}"
+             title="{{ site.data.personal.email }}">
             <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-            <span class="sr-only">Email: {{ site.data.personal.email }}</span>
-          </span>
+            <span class="sr-only">Show email address</span>
+          </a>
 
           {% for profile in site.data.personal.profiles %}
             <a class="contact-item" href="{{ profile.url }}"
@@ -142,13 +161,6 @@ It is threatened by habitat loss.
           {% endif %}
         </p>
 
-      </section>
-      <section class="col-md-4">
-        <!-- The photo lives here rather than in the fixed header, so it scrolls
-             away with the page instead of following you down it. -->
-        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
-             alt="{{ site.data.personal.name }}"
-             class="img-circle profile-photo">
       </section>
     </div>
   </div>
@@ -338,6 +350,24 @@ It is threatened by habitat loss.
         } else {
           $('body').addClass('intro-screen');
         }
+      });
+
+      // Assemble the email address only when someone asks for it. The two
+      // halves live in data attributes, so the complete address is never in
+      // the HTML that crawlers read. One tap both reveals the address and
+      // hands it to the mail client, which a title tooltip cannot do on touch.
+      $('#email-link').one('click', function (event) {
+        event.preventDefault();
+
+        var link = $(this);
+        var address = link.data('user') + '@' + link.data('domain');
+
+        link.attr('href', 'mailto:' + address)
+            .attr('title', address)
+            .find('.sr-only').text(address).removeClass('sr-only')
+            .addClass('contact-label');
+
+        window.location.href = 'mailto:' + address;
       });
     });
   </script>

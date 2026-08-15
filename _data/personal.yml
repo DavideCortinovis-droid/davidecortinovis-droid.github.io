@@ -4,9 +4,15 @@ label: Researcher in Cognitive Neuroscience
 
 picture: /img/profile-picture.jpg
 
-# Printed verbatim, so the real address never appears in the page source or in
-# this public repo for a crawler to scrape. A person can still work it out.
+# The address is assembled in the browser from these two halves on click, so
+# the complete string never appears in the page source. Harvesters that scan
+# HTML for `something@something` find nothing to match.
+#
+# `email` is the fallback shown when JavaScript is unavailable, and the label
+# on the icon before it is clicked.
 email: firstname (dot) lastname (at symbol) unitn.it
+email_user: davide.cortinovis
+email_domain: unitn.it
 
 # Either a full URL (e.g. a Google Drive share link, so the CV can be updated
 # without touching this repo) or a path inside the repo such as
