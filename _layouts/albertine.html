@@ -41,6 +41,10 @@ It is threatened by habitat loss.
   <meta name="google-site-verification" content="{{ site.google_site_verification }}">
   {% endif %}
 
+  <!-- Carried over from the previous Hugo site (assets/media/icon.png). -->
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/icon.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/icon.png">
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -93,22 +97,12 @@ It is threatened by habitat loss.
           {{ site.data.personal.intro.body | markdownify }}
         </div>
 
-      </section>
-      <section class="col-md-4">
-        <!-- The photo lives here rather than in the fixed header, so it scrolls
-             away with the page instead of following you down it. -->
-        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
-             alt="{{ site.data.personal.name }}"
-             class="img-circle profile-photo">
-      </section>
-    </div>
-
-    <!-- Contact sits under the intro rather than beside it: as a narrow right
-         column it was a thin stack of text against a wide block of prose. -->
-    <div class="row">
-      <section class="col-md-8">
+        <!-- Contact sits inside the intro column, directly under the prose, so
+             it is not pushed down past the full height of the photo beside it. -->
         <h3>Contact</h3>
-        <p>
+
+        <p class="contact-email">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
           {{ site.data.personal.email }}
         </p>
 
@@ -133,18 +127,28 @@ It is threatened by habitat loss.
               {% endcase %}
             </a>
           {% endfor %}
-
-          {% if site.data.personal.cv %}
-            {% comment %}
-              An absolute URL (Google Drive) is used as-is; a repo-relative path
-              gets the baseurl prefix.
-            {% endcomment %}
-            <a href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}"
-               title="Curriculum Vitae" aria-label="Curriculum Vitae">
-              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
-            </a>
-          {% endif %}
         </p>
+
+        {% if site.data.personal.cv %}
+          {% comment %}
+            An absolute URL (Google Drive) is used as-is; a repo-relative path
+            gets the baseurl prefix.
+          {% endcomment %}
+          <p class="contact-cv">
+            <a href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+              CV / Resume
+            </a>
+          </p>
+        {% endif %}
+
+      </section>
+      <section class="col-md-4">
+        <!-- The photo lives here rather than in the fixed header, so it scrolls
+             away with the page instead of following you down it. -->
+        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
+             alt="{{ site.data.personal.name }}"
+             class="img-circle profile-photo">
       </section>
     </div>
   </div>
@@ -246,9 +250,6 @@ It is threatened by habitat loss.
               <br>
               <em>{{ publication.venue }}</em>
             {% endif %}
-            {% if publication.url and publication.link_text %}
-              [<a href="{{ publication.url }}">{{ publication.link_text }}</a>]
-            {% endif %}
           </p>
         {% endfor %}
       </div>
@@ -292,12 +293,6 @@ It is threatened by habitat loss.
             {% if presentation.citation %}
               <br>
               <small>{{ presentation.citation }}</small>
-            {% endif %}
-            {% if presentation.slides_url %}
-              [<a href="{{ presentation.slides_url }}">{{ presentation.slides_text | default: 'Slides' }}</a>]
-            {% endif %}
-            {% if presentation.video_url %}
-              [<a href="{{ presentation.video_url }}">{{ presentation.video_text | default: 'Video' }}</a>]
             {% endif %}
           </p>
         </div>
