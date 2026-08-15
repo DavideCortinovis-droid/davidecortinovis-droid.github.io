@@ -1,0 +1,45 @@
+# The five conference abstracts from the old site's "Conference abstracts" list,
+# plus the OHBM 2024 talk which previously only appeared in the news timeline.
+# Newest first.
+#
+# Venue/city is only stated where the old site stated it (CCN 2025 Amsterdam,
+# VSS 2025 St Pete Beach, OHBM 2024 Seoul); the remaining entries carry their
+# citation only. Author lists and titles are kept verbatim from the old site.
+-
+  title: Comparing Object Selectivity in Visual Cortex and Topographic Deep Artifcial Neural Networks
+  location: CCN 2025, Amsterdam, Netherlands
+  date: August 2025
+  citation: "<b>Cortinovis, D.</b>, Hebart, M., &amp; Bracci, S. (2025). Conference on Cognitive Computational Neuroscience."
+  slides_url: https://2025.ccneuro.org/abstract_pdf/Cortinovis_2025_Comparing_Object_Selectivity_Visual_Cortex_Topographic.pdf
+  slides_text: Abstract
+-
+  title: Object dimensions underlying food selectivity in visual cortex
+  location: VSS 2025, St Pete Beach, Florida, US
+  date: May 2025
+  citation: "<b>Cortinovis, D.</b>, Orlandi, G., van Campenhout, L., &amp; Bracci, S. (2025). Journal of Vision, 25(9), 1910-1910."
+  slides_url: https://jov.arvojournals.org/article.aspx?articleid=2810196
+  slides_text: Abstract
+-
+  title: The Effect of Scene Clutter on Visual Representations
+  location: VSS 2025, St Pete Beach, Florida, US
+  date: May 2025
+  citation: "Bracci, S., <b>Cortinovis, D.</b>, &amp; Garnuto, E. (2025). Journal of Vision, 25(9), 2061-2061."
+  slides_url: https://jov.arvojournals.org/article.aspx?articleid=2810061
+  slides_text: Abstract
+-
+  title: Action-related topographic organization of category-selectivity in visual cortex and in artificial neural networks
+  location: OHBM 2024, Seoul, South Korea
+  date: June 2024
+  video_url: https://www.youtube.com/watch?v=ws3nZaWWNvY
+-
+  title: The role of action-related properties in shaping the object space in the biological and artificial brain
+  location: Journal of Vision, 23(9), 4868-4868
+  date: May 2023
+  citation: "<b>Cortinovis, D.</b>, de Beeck, H. O., &amp; Bracci, S. (2023)."
+  slides_url: https://jov.arvojournals.org/article.aspx?articleid=2791637
+  slides_text: Abstract
+-
+  title: The organization of body-parts representations in Deep Convolutional Neural Networks
+  location: Perception, 50(1_SUPPL), 123-123
+  date: 2021
+  citation: "<b>Cortinovis, D.</b>, de Beeck, H. O., &amp; Bracci, S. (2021)."

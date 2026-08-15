@@ -1,0 +1,24 @@
+# Ported from the news timeline that was hand-written as inline HTML in the old
+# Hugo site's content/_index.md. Newest first. `body` is rendered as markdown.
+-
+  date: 8 May 2026
+  body: >
+    My work on food selectivity in visual cortex received the
+    [Best Poster Award](https://drive.google.com/file/d/1-SocL9xnwCB2fm83OvzF40Tt1HdpW-Cs/view?usp=sharing)
+    at the [CAOs Workshop](https://event.unitn.it/cimec-caos/)!
+-
+  date: 20 Apr 2026
+  body: >
+    **I defended [my thesis](https://iris.unitn.it/bitstream/11572/483110/1/PhD_Thesis_Cortinovis.pdf)
+    and earned my PhD!**
+-
+  date: 13 Apr 2026
+  body: >
+    A [preprint](https://www.biorxiv.org/content/10.64898/2026.04.09.717525v1.abstract)
+    based on one study from my PhD thesis is now available.
+-
+  date: 21 Dec 2025
+  body: >
+    I published the main [paper](https://www.nature.com/articles/s41467-025-67855-6)
+    of my PhD thesis in *Nature Communications*: Investigating action topography
+    in visual cortex and deep artificial neural networks!!

@@ -1,0 +1,246 @@
+body {
+  -webkit-font-smoothing:antialiased;
+     -moz-font-smoothing:antialiased;
+          font-smoothing:antialiased;
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
+  font-family:'Roboto', 'Arial', sans-serif;
+  font-size:16px;
+  padding-top:176px;
+  background-color:#fff;
+}
+
+/*******************
+ * HEADER
+ *******************/
+header {
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  right:0;
+  padding:32px 0;
+  background-color:#fff;
+}
+  header h1 {
+    margin:0;
+    line-height:24px;
+    font-weight:bold;
+    font-size:18px;
+  }
+  header h2 {
+    margin:0;
+    line-height:24px;
+    font-size:18px;
+  }
+
+footer {
+  padding:48px 0 96px;
+  line-height:20px;
+  font-size:14px;
+}
+
+/*******************
+ * SECTION
+ *******************/
+section {
+  padding:48px 0;
+}
+  section h3 {
+    padding:0 0 8px;
+    line-height:40px;
+    font-weight:bold;
+    font-size:32px;
+    color:#ff5722;
+  }
+  section .lead {
+    font-size:24px;
+  }
+  section p {
+    margin-bottom:1em;
+  }
+  /* The theme shipped 0.5, which renders mid-grey on white: about 4:1 against
+     the background, under the 4.5:1 WCAG AA needs for text this size. The
+     citations under each talk are set in it, so it has to be readable. */
+  section p small {
+    opacity:0.65;
+  }
+  section a,
+  section a:hover {
+    color:#44a9eb;
+  }
+
+/*******************
+ * INTRO SCREEN
+ *******************/
+.intro-screen,
+.intro-screen header {
+  background-color:#44a9eb;
+  color:#fff;
+}
+  .intro-screen h1,
+  .intro-screen h2,
+  .intro-screen h3 {
+    color:#fff;
+  }
+  .intro-screen a,
+  .intro-screen a:hover {
+    color:#fff59d;
+  }
+
+/*******************
+ * TRANSITIONS
+ *******************/
+body,
+header {
+  -webkit-transition:background-color .5s;
+     -moz-transition:background-color .5s;
+          transition:background-color .5s;
+}
+
+/*******************
+ * PROFILE PHOTO
+ *******************/
+/* Sits in the About column, not the fixed header, so it scrolls out of view
+   with the rest of the intro. The white border reads against the blue intro
+   screen; the shadow keeps the edge visible once the background turns white. */
+.profile-photo {
+  display:block;
+  width:100%;
+  max-width:220px;
+  height:auto;
+  margin:0 auto 24px;
+  border:5px solid rgba(255,255,255,0.85);
+  box-shadow:0 2px 10px rgba(0,0,0,0.18);
+}
+
+/*******************
+ * CONTACT ICONS
+ *******************/
+/* Icon-only links, so the row reads as a compact strip under the intro rather
+   than a list of repeated site names. The accessible name comes from the
+   `aria-label` on each anchor. */
+.contact-icons {
+  margin-top:28px;
+}
+  .contact-item {
+    display:inline-block;
+    margin-right:14px;
+    /* Vertical padding lifts the touch area to ~44px without moving the icon,
+       which is the minimum comfortable tap target on a phone. */
+    padding:7px 4px;
+    font-size:28px;
+    line-height:1;
+    vertical-align:middle;
+  }
+    .contact-item:last-child {
+      margin-right:0;
+    }
+    /* "Resume" reads at body size beside its 28px icon. */
+    .contact-label {
+      margin-left:8px;
+      font-size:17px;
+      vertical-align:middle;
+    }
+
+/* Tighten the row so the icons and "Resume" still fit on one line at 320px. */
+@media (max-width:767px) {
+  .contact-item {
+    margin-right:6px;
+    padding:10px 4px;
+    font-size:24px;
+  }
+    .contact-label {
+      margin-left:6px;
+      font-size:15px;
+    }
+}
+
+/* Above the bio on narrow screens, where a full-width circle is far too tall.
+   Centred, since it no longer sits beside anything. Both columns carry the
+   theme's 48px section padding, which stacks into a ~96px gulf between the
+   photo and the heading once they are one above the other. */
+@media (max-width:991px) {
+  .profile-photo {
+    max-width:150px;
+    margin:0 auto;
+  }
+  .profile-column {
+    padding-bottom:0;
+  }
+  .intro-column {
+    padding-top:24px;
+  }
+}
+
+/*******************
+ * DATED LISTS (News, Posters & Talks)
+ *******************/
+/* One definition shared by both sections, so their date pills cannot drift
+   apart. */
+.dated-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+  .dated-item {
+    display:flex;
+    align-items:baseline;
+    gap:0.75rem;
+    margin-bottom:0.9rem;
+    line-height:1.5;
+  }
+  /* Fixed width rather than min-width: the dates range from "2021" to
+     "22-27 June 2024", and a pill that grows with its text would leave every
+     entry's body starting at a different place. */
+  .dated-date {
+    flex:0 0 132px;
+    padding:0.2rem 0.7rem;
+    border-radius:999px;
+    background-color:#ff5722;
+    color:#fff;
+    font-weight:bold;
+    font-size:13px;
+    white-space:nowrap;
+    text-align:center;
+  }
+  .dated-body {
+    flex:1 1 auto;
+  }
+  /* Talks carry a title, a venue and a citation, so they need the line breaks
+     that a news one-liner does not. */
+  .dated-body .dated-venue {
+    display:block;
+  }
+
+/* Stack the date above the text on narrow screens, where a fixed-width pill
+   plus prose leaves the text column too cramped to read. */
+@media (max-width:767px) {
+  .dated-item {
+    display:block;
+  }
+  .dated-date {
+    display:inline-block;
+    margin-bottom:0.35rem;
+  }
+}
+
+/*******************
+ * MOBILE HEADER
+ *******************/
+/* The fixed header is two 24px lines plus 32px padding top and bottom. The
+   desktop `padding-top:176px` on body leaves room for that; below the Bootstrap
+   `sm` breakpoint the name wraps to a second line, so give it more clearance. */
+@media (max-width:767px) {
+  body {
+    padding-top:150px;
+  }
+  header {
+    padding:20px 0;
+  }
+    header h1,
+    header h2 {
+      font-size:16px;
+    }
+}

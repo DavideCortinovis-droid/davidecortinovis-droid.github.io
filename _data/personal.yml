@@ -1,0 +1,52 @@
+name: Davide Cortinovis
+
+label: Researcher in Cognitive Neuroscience
+
+picture: /img/profile-picture.jpg
+
+# The address is base64 and is decoded in the browser only when someone clicks
+# the envelope, so neither this repo nor the served HTML contains it in a
+# readable form. This stops bulk harvesters; it is not secrecy, since anyone
+# who reads the page's JavaScript can decode it too.
+#
+# To change the address, regenerate the value:
+#   python3 -c "import base64;print(base64.b64encode(b'new@address.here').decode())"
+#
+# `email` is the label on the icon before it is clicked, and the fallback for
+# anyone browsing without JavaScript.
+email: firstname (dot) lastname (at symbol) unitn.it
+email_encoded: ZGF2aWRlLmNvcnRpbm92aXNAdW5pdG4uaXQ=
+
+# Either a full URL (e.g. a Google Drive share link, so the CV can be updated
+# without touching this repo) or a path inside the repo such as
+# /uploads/resume.pdf. Leave blank to hide the CV link entirely.
+cv: https://drive.google.com/file/d/1IHHp2s0nADxj9yHeIRNJXdGRDKSmVs-i/view
+
+profiles:
+  -
+    network: Google Scholar
+    url: https://scholar.google.com/citations?user=vYwlWZUAAAAJ&hl=en
+  -
+    network: GitHub
+    username: DavideCortinovis-droid
+    url: https://github.com/DavideCortinovis-droid
+  -
+    network: LinkedIn
+    url: https://www.linkedin.com/in/davide-cortinovis-a59907174/
+  -
+    network: Bluesky
+    username: davidecortinovis
+    url: https://bsky.app/profile/davidecortinovis.bsky.social
+
+intro:
+  # Rendered as the large heading above the body, so the body starts at
+  # "I am a researcher" to avoid saying "Hello!" twice.
+  title: Hello!
+  body: >
+    I am a researcher in visual neuroscience. I did my PhD at the
+    [Center for Mind/Brain Sciences](https://www.cimec.unitn.it/en) at the
+    University of Trento, in the Object Vision Group
+    led by [Stefania Bracci](https://webapps.unitn.it/du/en/Persona/PER0076943/Curriculum).
+    In my [PhD thesis](https://iris.unitn.it/bitstream/11572/483110/1/PhD_Thesis_Cortinovis.pdf),
+    I investigated the topographic organization of object categories and
+    dimensions in visual cortex and in artificial neural networks.

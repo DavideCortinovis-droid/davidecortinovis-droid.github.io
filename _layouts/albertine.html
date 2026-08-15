@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<!--
+
+Albertine 0.1
+An Elbowpatched theme
+
+(c) 2014 Ian Li (http://ianli.com)
+Released under the MIT licence - see LICENSE-albertine.
+
+Adapted for davidecortinovis-droid.github.io:
+  - added a News section (the theme has no equivalent)
+  - publications render `venue` and link to `url` (the original linked titles to
+    a `pdf` field only, and had no preprint type)
+  - presentations render `citation` and `video_url` (the original silently
+    dropped `video_url`)
+  - Font Awesome 4.1 -> 6.7.2 plus Academicons, for GitHub/Bluesky/Scholar icons
+  - protocol-relative CDN URLs made https, dead MaxCDN IE8 shim removed
+
+####
+
+Albertine owlet
+http://en.wikipedia.org/wiki/Albertine_owlet
+
+The Albertine owlet (Glaucidium albertinum) is a species of owl in the Strigidae family.
+It is found in Democratic Republic of the Congo and Rwanda.
+Its natural habitat is subtropical or tropical moist montane forests.
+It is threatened by habitat loss.
+
+-->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description | strip_newlines | strip }}">
+  {% if site.google_site_verification %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {% endif %}
+
+  <!-- Carried over from the previous Hugo site (assets/media/icon.png). -->
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/icon.png">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/icon.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/albertine/css/default.css">
+
+  <!-- Javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="intro-screen">
+
+  <!-- ==================== -->
+  <!-- HEADER -->
+  <!-- ==================== -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>
+            {{ site.data.personal.name }}
+          </h1>
+          <h2>
+            {{ site.data.personal.label }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== -->
+  <!-- ABOUT + CONTACT -->
+  <!-- ==================== -->
+  <div class="container"
+           id="section-about">
+    <div class="row">
+      {% comment %}
+        The photo comes first in source order so it leads on a phone, where the
+        columns stack. push/pull swaps it back to the right on desktop.
+      {% endcomment %}
+      <section class="col-md-4 col-md-push-8 profile-column">
+        <!-- The photo lives here rather than in the fixed header, so it scrolls
+             away with the page instead of following you down it. -->
+        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
+             alt="{{ site.data.personal.name }}"
+             class="img-circle profile-photo">
+      </section>
+      <section class="col-md-8 col-md-pull-4 intro-column">
+        {% if site.data.personal.intro.title %}
+          <h3 style="font-size:48px">
+            {{ site.data.personal.intro.title }}
+          </h3>
+        {% else %}
+          <h3>
+            About
+          </h3>
+        {% endif %}
+
+        <div class="lead">
+          {{ site.data.personal.intro.body | markdownify }}
+        </div>
+
+        <!-- Contact sits inside the intro column, directly under the prose, so
+             it is not pushed down past the full height of the photo beside it.
+             One unlabelled row: the address shows on hover, and every item
+             carries a screen-reader name. -->
+        <p class="contact-icons">
+          {% comment %}
+            Decoded by JavaScript on click (see the bottom of this file), so the
+            address is never in the served HTML in readable form. Works on touch
+            devices, where a `title` tooltip never appears.
+          {% endcomment %}
+          <a class="contact-item" id="email-link" href="#"
+             data-email="{{ site.data.personal.email_encoded }}"
+             title="{{ site.data.personal.email }}">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <span class="sr-only">Show email address</span>
+          </a>
+
+          {% for profile in site.data.personal.profiles %}
+            <a class="contact-item" href="{{ profile.url }}"
+               title="{{ profile.network }}" aria-label="{{ profile.network }}">
+              {% case profile.network %}
+                {% when 'Google Scholar' %}
+                  <i class="ai ai-google-scholar" aria-hidden="true"></i>
+                {% when 'ORCID' %}
+                  <i class="ai ai-orcid" aria-hidden="true"></i>
+                {% when 'GitHub' %}
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                {% when 'LinkedIn' %}
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                {% when 'Bluesky' %}
+                  <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+                {% when 'Twitter' %}
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                {% else %}
+                  <i class="fa-solid fa-link" aria-hidden="true"></i>
+              {% endcase %}
+            </a>
+          {% endfor %}
+
+          {% if site.data.personal.cv %}
+            {% comment %}
+              An absolute URL (Google Drive) is used as-is; a repo-relative path
+              gets the baseurl prefix.
+            {% endcomment %}
+            <a class="contact-item"
+               href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}"
+               title="CV">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i><span class="contact-label">CV</span>
+            </a>
+          {% endif %}
+        </p>
+
+      </section>
+    </div>
+  </div>
+
+  {% if site.data.news.size > 0 %}
+  <!-- ==================== -->
+  <!-- NEWS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>News</h3>
+
+        <ol class="dated-list">
+          {% for item in site.data.news %}
+            <li class="dated-item">
+              <span class="dated-date">{{ item.date }}</span>
+              <span class="dated-body">{{ item.body | markdownify | remove:'<p>' | remove:'</p>' }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if site.data.projects.size > 0 %}
+  <!-- ==================== -->
+  <!-- PROJECTS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Projects</h3>
+      </div>
+    </div>
+
+    {% for project in site.data.projects %}
+      <div class="row">
+        {% if project.image %}
+          <div class="col-xs-4
+                      col-sm-3
+                      col-md-3
+                      col-lg-2">
+            <p>
+              <img src="{{ site.baseurl }}{{ project.image }}"
+                   alt="{{ project.name }}"
+                   class="img-responsive img-thumbnail"
+                   style="width:100%">
+            </p>
+          </div>
+        {% endif %}
+        <div class="{% if project.image %}col-xs-12 col-sm-9 col-md-6 col-lg-7{% else %}col-md-9{% endif %}">
+          <p>
+            <b>
+              {% if project.url %}
+                <a href="{{ project.url }}">
+                  {{ project.name }}
+                </a>
+              {% else %}
+                {{ project.name }}
+              {% endif %}
+            </b>
+          </p>
+
+          {{ project.description | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if site.data.publications.size > 0 %}
+  <!-- ==================== -->
+  <!-- PUBLICATIONS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Publications</h3>
+
+        {% for publication in site.data.publications %}
+          <p>
+            <b>
+              {% if publication.url %}
+                <a href="{{ publication.url }}">
+                  {{ publication.title }}
+                </a>
+              {% else %}
+                {{ publication.title }}
+              {% endif %}
+            </b>
+            <br>
+            {{ publication.authors }}
+            {% if publication.venue %}
+              <br>
+              <em>{{ publication.venue }}</em>{% if publication.year %}, {{ publication.year }}{% endif %}
+            {% elsif publication.year %}
+              <br>
+              {{ publication.year }}
+            {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if site.data.presentations.size > 0 %}
+  <!-- ==================== -->
+  <!-- POSTERS & TALKS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Posters &amp; Talks</h3>
+
+        <ol class="dated-list">
+          {% for presentation in site.data.presentations %}
+            <li class="dated-item">
+              <span class="dated-date">{{ presentation.date }}</span>
+              <span class="dated-body">
+                <b>
+                  {% if presentation.slides_url %}
+                    <a href="{{ presentation.slides_url }}">{{ presentation.title }}</a>
+                  {% elsif presentation.video_url %}
+                    <a href="{{ presentation.video_url }}">{{ presentation.title }}</a>
+                  {% else %}
+                    {{ presentation.title }}
+                  {% endif %}
+                </b>
+                <span class="dated-venue">{{ presentation.location }}</span>
+                {% if presentation.citation %}
+                  <small>{{ presentation.citation }}</small>
+                {% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ==================== -->
+  <!-- FOOTER -->
+  <!-- ==================== -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            Thanks <a href="https://tlmnhut.github.io/">Nhut Truong</a> for the help to make the page 😇
+          </p>
+          <p>
+            <small>
+              Built with Jekyll using the template by <a href="http://ianli.com">Ian Li</a>.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== -->
+  <!-- JAVASCRIPTS -->
+  <!-- ==================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#section-about').waypoint(function (direction) {
+        if (direction === 'down') {
+          $('body').removeClass('intro-screen');
+        } else {
+          $('body').addClass('intro-screen');
+        }
+      });
+
+      // Decode the email address only when someone asks for it. It is stored
+      // base64, so the HTML that crawlers read holds no readable address. One
+      // tap both reveals it and hands it to the mail client, which a title
+      // tooltip cannot do on touch.
+      $('#email-link').one('click', function (event) {
+        event.preventDefault();
+
+        var link = $(this);
+        var address = window.atob(link.data('email'));
+
+        link.attr('href', 'mailto:' + address)
+            .attr('title', address)
+            .find('.sr-only').text(address).removeClass('sr-only')
+            .addClass('contact-label');
+
+        window.location.href = 'mailto:' + address;
+      });
+    });
+  </script>
+</body>
+</html>
