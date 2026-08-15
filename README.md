@@ -23,9 +23,10 @@ page (`index.html`) and a single layout (`_layouts/albertine.html`).
 Each list section is wrapped in `{% if site.data.<name>.size > 0 %}`, so
 emptying a data file removes its section from the page.
 
-The photo is `img/profile-picture.jpg`. The CV is not in this repo: `cv:` in
-`_data/personal.yml` holds a Google Drive link, so it can be replaced without
-a commit here. A repo-relative path such as `/uploads/resume.pdf` also works.
+The photo is `img/profile-picture.jpg`. The CV is deliberately **not** in this
+repo: `cv:` in `_data/personal.yml` holds a Google Drive link, which is the
+single source for it. Replacing the file in Drive updates the site with no
+commit here, and there is no second copy to fall out of date.
 
 ### The email address
 

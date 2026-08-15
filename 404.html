@@ -1,0 +1,41 @@
+---
+layout: null
+sitemap: false
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — {{ site.title }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <style>
+    body {
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background-color:#44a9eb;
+      color:#fff;
+      font-family:'Roboto','Arial',sans-serif;
+      text-align:center;
+      -webkit-font-smoothing:antialiased;
+    }
+    .box { padding:24px; }
+    h1 { margin:0 0 8px; font-size:48px; }
+    p  { margin:0 0 24px; font-size:20px; }
+    a  { color:#fff59d; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Page not found</h1>
+    <p>That page has moved or no longer exists.</p>
+    <p><a href="{{ site.baseurl }}/">Go to {{ site.data.personal.name }}&rsquo;s homepage</a></p>
+  </div>
+</body>
+</html>
