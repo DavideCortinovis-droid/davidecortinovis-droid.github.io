@@ -1,2 +1,22 @@
-# No projects yet. The layout guards this section with `{% if size > 0 %}`, so
-# leaving this empty hides the Projects section entirely.
+# Two placeholders to fill in. Each project takes:
+#   name        - required, the heading
+#   description - required, markdown is allowed
+#   image       - optional, a path under /img/. Omit it and the text takes the
+#                 full width instead of leaving a gap.
+#   url         - optional, makes the name a link
+-
+  name: Project one
+  description: >
+    A short description of the project goes here. A couple of sentences saying
+    what the question was, what you did, and what came out of it is usually
+    enough. **Markdown** and [links](https://example.com) work.
+  image: /img/project-placeholder.svg
+  url:
+-
+  name: Project two
+  description: >
+    A short description of the project goes here. A couple of sentences saying
+    what the question was, what you did, and what came out of it is usually
+    enough. **Markdown** and [links](https://example.com) work.
+  image: /img/project-placeholder.svg
+  url:

@@ -36,18 +36,15 @@ profiles:
     url: https://bsky.app/profile/davidecortinovis.bsky.social
 
 intro:
+  # Rendered as the large heading above the body, so the body starts at
+  # "I am a researcher" to avoid saying "Hello!" twice.
   title: Hello!
-  # Interests and education are folded into this prose rather than given their
-  # own sidebar blocks, since Albertine has no structured slot for them.
   body: >
-    I am a researcher in the Object Vision Group at the
-    [Centre for Mind/Brain Sciences (CIMeC)](https://webapps.unitn.it/du/en/Persona/PER0221111/Pubblicazioni),
-    University of Trento.
-    I investigate the topographic organization of object categories and dimensions
-    in visual cortex and in artificial neural networks.
-
-
-    My interests span visual neuroscience, neuroimaging, and computational
-    modelling. I hold a PhD in Cognitive and Brain Sciences and an MSc in
-    Cognitive Neuroscience from the University of Trento, and a BSc in
-    Psychology from the University of Bergamo.
+    I am a researcher in visual neuroscience. I did my PhD at the
+    [Center for Mind/Brain Sciences](https://www.cimec.unitn.it/) at the
+    University of Trento, in the
+    [Object Vision Group](https://www.cimec.unitn.it/en/1048/object-vision-group)
+    led by [Stefania Bracci](https://webapps.unitn.it/du/en/Persona/PER0076943/Curriculum).
+    In my [PhD thesis](https://iris.unitn.it/bitstream/11572/483110/1/PhD_Thesis_Cortinovis.pdf),
+    I investigated the topographic organization of object categories and
+    dimensions in visual cortex and in artificial neural networks.

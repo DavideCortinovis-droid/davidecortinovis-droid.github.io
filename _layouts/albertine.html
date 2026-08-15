@@ -60,19 +60,13 @@ It is threatened by habitat loss.
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-xs-9 col-lg-9">
+        <div class="col-xs-12">
           <h1>
             {{ site.data.personal.name }}
           </h1>
           <h2>
             {{ site.data.personal.label }}
           </h2>
-        </div>
-        <div class="col-xs-3 col-lg-3">
-          <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
-               alt="{{ site.data.personal.name }}"
-               class="img-circle"
-               style="margin-top:-6px;width:56px;border:2px solid rgba(255,255,255,0.75)">
         </div>
       </div>
     </div>
@@ -101,6 +95,12 @@ It is threatened by habitat loss.
 
       </section>
       <section class="col-md-offset-1 col-md-3">
+        <!-- The photo lives here rather than in the fixed header, so it scrolls
+             away with the page instead of following you down it. -->
+        <img src="{{ site.baseurl }}{{ site.data.personal.picture }}"
+             alt="{{ site.data.personal.name }}"
+             class="img-circle profile-photo">
+
         <h3>Contact</h3>
         <p>
           {{ site.data.personal.email | replace:'@',' <small>[at]</small> ' | replace:'.',' <small>[dot]</small> ' }}
@@ -175,6 +175,52 @@ It is threatened by habitat loss.
   </section>
   {% endif %}
 
+  {% if site.data.projects.size > 0 %}
+  <!-- ==================== -->
+  <!-- PROJECTS -->
+  <!-- ==================== -->
+  <section class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Projects</h3>
+      </div>
+    </div>
+
+    {% for project in site.data.projects %}
+      <div class="row">
+        {% if project.image %}
+          <div class="col-xs-4
+                      col-sm-3
+                      col-md-3
+                      col-lg-2">
+            <p>
+              <img src="{{ site.baseurl }}{{ project.image }}"
+                   alt="{{ project.name }}"
+                   class="img-responsive img-thumbnail"
+                   style="width:100%">
+            </p>
+          </div>
+        {% endif %}
+        <div class="{% if project.image %}col-xs-12 col-sm-9 col-md-6 col-lg-7{% else %}col-md-9{% endif %}">
+          <p>
+            <b>
+              {% if project.url %}
+                <a href="{{ project.url }}">
+                  {{ project.name }}
+                </a>
+              {% else %}
+                {{ project.name }}
+              {% endif %}
+            </b>
+          </p>
+
+          {{ project.description | markdownify }}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
   {% if site.data.publications.size > 0 %}
   <!-- ==================== -->
   <!-- PUBLICATIONS -->
@@ -214,61 +260,14 @@ It is threatened by habitat loss.
   </section>
   {% endif %}
 
-  {% if site.data.projects.size > 0 %}
-  <!-- ==================== -->
-  <!-- PROJECTS -->
-  <!-- ==================== -->
-  <section class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <h3>Projects</h3>
-      </div>
-    </div>
-
-    {% for project in site.data.projects %}
-      <div class="row">
-        <div class="col-xs-4
-                    col-sm-3
-                    col-md-3
-                    col-lg-2">
-          <p>
-            <img src="{{ site.baseurl }}{{ project.image }}"
-                 alt="{{ project.name }}"
-                 class="img-responsive img-thumbnail"
-                 style="width:100%">
-          </p>
-        </div>
-        <div class="col-xs-12
-                    col-sm-9
-                    col-md-6
-                    col-lg-7">
-          <p>
-            <b>
-              {% if project.url %}
-                <a href="{{ project.url }}">
-                  {{ project.name }}
-                </a>
-              {% else %}
-                {{ project.name }}
-              {% endif %}
-            </b>
-          </p>
-
-          {{ project.description | markdownify }}
-        </div>
-      </div>
-    {% endfor %}
-  </section>
-  {% endif %}
-
   {% if site.data.presentations.size > 0 %}
   <!-- ==================== -->
-  <!-- PRESENTATIONS -->
+  <!-- POSTERS & TALKS -->
   <!-- ==================== -->
   <section class="container">
     <div class="row">
       <div class="col-md-9">
-        <h3>Conference presentations</h3>
+        <h3>Posters &amp; Talks</h3>
       </div>
     </div>
 

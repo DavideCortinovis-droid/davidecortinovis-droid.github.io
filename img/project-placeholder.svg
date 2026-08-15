@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Placeholder image">
+  <rect width="400" height="300" fill="#eceff1"/>
+  <g fill="none" stroke="#b0bec5" stroke-width="6">
+    <rect x="3" y="3" width="394" height="294"/>
+    <circle cx="140" cy="110" r="30"/>
+    <path d="M40 250 L160 150 L240 215 L300 175 L360 250 Z"/>
+  </g>
+  <text x="200" y="285" font-family="Roboto, Arial, sans-serif" font-size="20"
+        fill="#90a4ae" text-anchor="middle">replace me</text>
+</svg>
