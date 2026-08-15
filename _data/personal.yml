@@ -11,7 +11,7 @@ email: firstname (dot) lastname (at symbol) unitn.it
 # Either a full URL (e.g. a Google Drive share link, so the CV can be updated
 # without touching this repo) or a path inside the repo such as
 # /uploads/resume.pdf. Leave blank to hide the CV link entirely.
-cv: /uploads/resume.pdf
+cv: https://drive.google.com/file/d/1IHHp2s0nADxj9yHeIRNJXdGRDKSmVs-i/view
 
 profiles:
   -

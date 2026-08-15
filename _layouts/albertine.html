@@ -98,17 +98,18 @@ It is threatened by habitat loss.
         </div>
 
         <!-- Contact sits inside the intro column, directly under the prose, so
-             it is not pushed down past the full height of the photo beside it. -->
-        <h3>Contact</h3>
-
-        <p class="contact-email">
-          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-          {{ site.data.personal.email }}
-        </p>
-
+             it is not pushed down past the full height of the photo beside it.
+             One unlabelled row: the address shows on hover, and every item
+             carries a screen-reader name. -->
         <p class="contact-icons">
+          <span class="contact-item" title="{{ site.data.personal.email }}">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <span class="sr-only">Email: {{ site.data.personal.email }}</span>
+          </span>
+
           {% for profile in site.data.personal.profiles %}
-            <a href="{{ profile.url }}" title="{{ profile.network }}" aria-label="{{ profile.network }}">
+            <a class="contact-item" href="{{ profile.url }}"
+               title="{{ profile.network }}" aria-label="{{ profile.network }}">
               {% case profile.network %}
                 {% when 'Google Scholar' %}
                   <i class="ai ai-google-scholar" aria-hidden="true"></i>
@@ -127,20 +128,19 @@ It is threatened by habitat loss.
               {% endcase %}
             </a>
           {% endfor %}
-        </p>
 
-        {% if site.data.personal.cv %}
-          {% comment %}
-            An absolute URL (Google Drive) is used as-is; a repo-relative path
-            gets the baseurl prefix.
-          {% endcomment %}
-          <p class="contact-cv">
-            <a href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}">
-              <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
-              CV / Resume
+          {% if site.data.personal.cv %}
+            {% comment %}
+              An absolute URL (Google Drive) is used as-is; a repo-relative path
+              gets the baseurl prefix.
+            {% endcomment %}
+            <a class="contact-item"
+               href="{% if site.data.personal.cv contains '://' %}{{ site.data.personal.cv }}{% else %}{{ site.baseurl }}{{ site.data.personal.cv }}{% endif %}"
+               title="Resume">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i><span class="contact-label">Resume</span>
             </a>
-          </p>
-        {% endif %}
+          {% endif %}
+        </p>
 
       </section>
       <section class="col-md-4">

@@ -118,22 +118,30 @@ header {
 /* Icon-only links, so the row reads as a compact strip under the intro rather
    than a list of repeated site names. The accessible name comes from the
    `aria-label` on each anchor. */
-.contact-icons a {
-  display:inline-block;
-  margin-right:22px;
-  font-size:28px;
-  line-height:1;
+.contact-icons {
+  margin-top:28px;
 }
-  .contact-icons a:last-child {
-    margin-right:0;
+  .contact-item {
+    display:inline-block;
+    margin-right:22px;
+    font-size:28px;
+    line-height:1;
+    vertical-align:middle;
   }
-
-/* The envelope and document icons carry text beside them, so they sit at the
-   text size rather than the 28px of the icon-only row. */
-.contact-email i,
-.contact-cv i {
-  margin-right:8px;
-}
+    .contact-item:last-child {
+      margin-right:0;
+    }
+    /* The envelope is not a link, so give it the cursor that says "hover me"
+       rather than the text caret. */
+    span.contact-item {
+      cursor:help;
+    }
+    /* "Resume" reads at body size beside its 28px icon. */
+    .contact-label {
+      margin-left:8px;
+      font-size:17px;
+      vertical-align:middle;
+    }
 
 /* Stacked under the bio on narrow screens, where a full-width circle is far
    too tall. Centred, since it no longer sits beside anything. */
