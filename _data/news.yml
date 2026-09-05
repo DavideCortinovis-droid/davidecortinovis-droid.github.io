@@ -1,6 +1,11 @@
 # Ported from the news timeline that was hand-written as inline HTML in the old
 # Hugo site's content/_index.md. Newest first. `body` is rendered as markdown.
 -
+  date: 27 Aug 2026
+  body: >
+    Final preprint from my PhD available! We investigate how [visual
+    cortex represents images of food](https://www.biorxiv.org/content/10.64898/2026.08.24.746622v1).
+-
   date: 8 May 2026
   body: >
     My work on food selectivity in visual cortex received the
