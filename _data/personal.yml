@@ -14,8 +14,8 @@ picture: /img/profile-picture.jpg
 #
 # `email` is the label on the icon before it is clicked, and the fallback for
 # anyone browsing without JavaScript.
-email: firstname (dot) lastname (at symbol) unitn.it
-email_encoded: ZGF2aWRlLmNvcnRpbm92aXNAdW5pdG4uaXQ=
+email: dcortino (at symbol) uwo.ca
+email_encoded: ZGNvcnRpbm9AdXdvLmNh
 
 # The CV lives on Google Drive so it can be replaced without a commit here.
 # Update the file in Drive and this link keeps working; no copy is kept in this
@@ -43,7 +43,7 @@ intro:
   # "I am a researcher" to avoid saying "Hello!" twice.
   title: Hello!
   body: >
-    I am a researcher in visual neuroscience. I did my PhD at the
+    I am a postdoc in the [Mur Lab](https://murlab.org/) at Western University. I did my PhD at the
     [Center for Mind/Brain Sciences](https://www.cimec.unitn.it/en) at the
     University of Trento, in the Object Vision Group
     led by [Stefania Bracci](https://webapps.unitn.it/du/en/Persona/PER0076943/Curriculum).
