@@ -1,6 +1,10 @@
 # Ported from the news timeline that was hand-written as inline HTML in the old
 # Hugo site's content/_index.md. Newest first. `body` is rendered as markdown.
 -
+  date: 1 Nov 2026
+  body: >
+    I won a Western postdoctoral fellowship grant and started my postdoc at Western University, in London Ontario.
+-
   date: 27 Aug 2026
   body: >
     Final preprint from my PhD available! We investigate how [visual
